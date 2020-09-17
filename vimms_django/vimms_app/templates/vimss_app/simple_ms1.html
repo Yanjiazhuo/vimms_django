@@ -1,0 +1,27 @@
+{% extends 'vimss_app/base.html' %}
+
+{% block title %}
+  simple_ms1
+{% endblock %}
+
+{% block breadcrumb %}
+  <!-- <li class="breadcrumb-item active">Boards</li> -->
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" >Upload</button>
+
+  </form>
+
+
+
+{% for myfile in processed_files %}
+    <li> <a class="nav-link" href="{{ myfile }}"> {{ myfile }} </a></li>
+
+{% endfor %}
+
+  <!-- <p><a href="{% url 'home' %}">Return to home</a></p> -->
+{% endblock %}

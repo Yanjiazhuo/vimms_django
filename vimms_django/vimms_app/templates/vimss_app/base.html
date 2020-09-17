@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}VIMMS{% endblock %}</title>
+  
+  <link rel="stylesheet" href="{% static "bootstrap-4.5.2-dist/css/bootstrap.min.css" %}"> 
+  <script src="{% static "jquery-3.5.1.slim.min.js" %}"></script>
+  <script src="{% static "bootstrap-4.5.2-dist/js/bootstrap.min.js" %}"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  $('li.active').removeClass('active');
+  $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
+});
+  </script>
+</head>
+
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-full" style="background-color:grey;">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark navbar-full bg-dark" style="background-color:grey;"> -->
+<!--   <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav nav-fill w-100">
+      <!-- <li class="nav-item active"> -->
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">simple_ms1 <span class="sr-only">(current)</span></a> -->
+        <a class="nav-link" href="/">home(Vimms by Django)</a>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">simple_ms1 <span class="sr-only">(current)</span></a> -->
+        <a class="nav-link" href="/simple_ms1">simple_ms1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/dia">dia</a>
+      </li>
+<!--       <li class="nav-item">
+        <a class="nav-link" href="/multiple_sample">multiple_sample</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="/top_n">top_n</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="container">
+      <!-- <ol class="breadcrumb my-4"> -->
+      <ol>
+        {% block breadcrumb %}
+        {% endblock %}
+      </ol>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+</body>
+</html>
